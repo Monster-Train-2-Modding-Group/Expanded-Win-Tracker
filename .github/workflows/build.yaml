@@ -51,6 +51,9 @@ jobs:
         
       - name: Setup Directory
         run: mkdir -p plugin_build
+        
+      - name: Copy Changelog to build dir
+        run: cp CHANGELOG.md plugin_build/CHANGELOG.md
 
       - name: Build Release
         run: dotnet build ${{ env.release_name }} -c Release --no-restore --output ./plugin_build/plugins /p:Version=${VERSION}
